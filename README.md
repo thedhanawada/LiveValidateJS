@@ -1,4 +1,4 @@
-## InstantValidateJS
+## LiveValidateJS
 
 LiveValidateJS is a lightweight JavaScript library that provides real-time form validation and input checking for HTML forms. With LiveValidateJS, you can create custom validation rules for each input field in your form and receive instant feedback on the input's validity as the user types. LiveValidateJS also supports server-side validation for added security and can help reduce form submission errors and increase user satisfaction.
 
