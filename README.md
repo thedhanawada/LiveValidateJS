@@ -42,16 +42,16 @@ This will add event listeners to the input fields to perform real-time validatio
 
 LiveValidateJS supports a variety of validation rules, which can be defined using data attributes on the input fields. Here are the currently supported validation rules:
 
-**required**: Requires the input field to have a non-empty value.
-**requiredMessage**: The error message to display if the input field is required but empty.
-**minLength**: Requires the input field to have a minimum length.
-**minLengthMessage**: The error message to display if the input field is too short.
-**maxLength**: Requires the input field to have a maximum length.
-**maxLengthMessage**: The error message to display if the input field is too long.
-**pattern**: Requires the input field to match a regular expression pattern.
-**patternMessage**: The error message to display if the input field doesn't match the pattern.
-**email**: Requires the input field to be a valid email format.
-**emailMessage**: The error message to display if the input field is not a valid email format.
+- **required**: Requires the input field to have a non-empty value.
+- **requiredMessage**: The error message to display if the input field is required but empty.
+- **minLength**: Requires the input field to have a minimum length.
+- **minLengthMessage**: The error message to display if the input field is too short.
+- **maxLength**: Requires the input field to have a maximum length.
+- **maxLengthMessage**: The error message to display if the input field is too long.
+- **pattern**: Requires the input field to match a regular expression pattern.
+- **patternMessage**: The error message to display if the input field doesn't match the pattern.
+- **email**: Requires the input field to be a valid email format.
+- **emailMessage**: The error message to display if the input field is not a valid email format.
 
 To define multiple validation rules for an input field, simply separate them with commas:
 
