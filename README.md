@@ -18,6 +18,16 @@ Copy code
 <script src="path/to/livevalidate.js"></script>
 ```
 
+## CDN
+
+You can also use LiveValidateJS via jsDelivr, a free, fast, and reliable open-source CDN. To include the library from jsDelivr, use the following URL:
+
+```HTML
+<script src="https://cdn.jsdelivr.net/gh/Formu8JS/LiveValidateJS@main/livevalidate.js"></script>
+```
+
+By using jsDelivr, you can take advantage of their global network to improve the performance and reliability of your website. jsDelivr also supports HTTPS, which means you can securely deliver your content to users.
+
 ## Usage
 To use LiveValidateJS, you need to add the livevalidate class to each input field you want to validate, and define the validation rules for each field using data attributes. Here's an example:
 
