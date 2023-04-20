@@ -2,8 +2,16 @@
 
 LiveValidateJS is a lightweight JavaScript library that provides real-time form validation and input checking for HTML forms. With LiveValidateJS, you can create custom validation rules for each input field in your form and receive instant feedback on the input's validity as the user types. LiveValidateJS also supports server-side validation for added security and can help reduce form submission errors and increase user satisfaction.
 
+## Features
+
+- Customizable validation rules for each input field
+- Real-time validation and input checking
+- Automatic error message generation and display
+- Server-side validation support
+- Lightweight and easy to use
+
 ## Installation
-You can include the instantvalidate.js  file in your HTML file using a script tag:
+You can include the instantvalidate.js file in your HTML file using a script tag:
 
 ```html
 Copy code
@@ -102,5 +110,3 @@ When the form is submitted, the server-side validation route (/process-form) rec
 
 ## Contributing
 If you find a bug or have a suggestion for improvement, feel free to open an issue or submit a pull request. Contributions are always welcome!
-
-
