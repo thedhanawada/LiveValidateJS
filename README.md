@@ -14,7 +14,6 @@ LiveValidateJS is a lightweight JavaScript library that provides real-time form 
 You can include the instantvalidate.js file in your HTML file using a script tag:
 
 ```html
-Copy code
 <script src="path/to/livevalidate.js"></script>
 ```
 
