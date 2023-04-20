@@ -55,6 +55,8 @@ function addLiveValidation(input, validationRules, successMessage, showLiveFeedb
       errorElement.innerHTML = errorMessage;
       input.classList.add('invalid');
     }
+  }); // Added a closing curly brace here
+  
   input.addEventListener('blur', async () => {
     const { isValid, errorMessage } = validateInput(input, validationRules);
     

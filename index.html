@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validation Example</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="container">
+      <h1>Validation Example</h1>
+      <form>
+        <div class="form-group">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name">
+          <div class="error-message"></div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email">
+          <div class="error-message"></div>
+        </div>
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password">
+          <div class="error-message"></div>
+        </div>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+    <script src="instantvalidate.js"></script>
+    <script>
+      addLiveValidation(
+        document.getElementById('name'),
+        [{ required: true }],
+        null,
+        true
+      );
+
+      addLiveValidation(
+        document.getElementById('email'),
+        [
+          { required: true },
+          { pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/ }
+        ],
+        null,
+        true
+      );
+
+      addLiveValidation(
+        document.getElementById('password'),
+        [{ required: true }, { minLength: 8 }],
+        null,
+        true
+      );
+
+      addGroupValidation(
+        [document.getElementById('name'), document.getElementById('email'), document.getElementById('password')],
+        (name, email, password) => {
+          return name !== '' && email !== '' && password !== '' && password.length >= 8;
+        },
+        'Please fill out all fields.'
+      );
+    </script>
+  </body>
+</html>
