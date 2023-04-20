@@ -31,7 +31,7 @@ function validateInput(input, validationRules) {
   return { isValid, errorMessage };
 }
 
-function addLiveValidation(input, validationRules, successMessage) {
+function addLiveValidation(input, validationRules, successMessage, showLiveFeedback) {
   const errorElement = document.createElement('div');
   errorElement.classList.add('error-message');
   input.parentElement.appendChild(errorElement);
@@ -55,8 +55,6 @@ function addLiveValidation(input, validationRules, successMessage) {
       errorElement.innerHTML = errorMessage;
       input.classList.add('invalid');
     }
-  });
-  
   input.addEventListener('blur', async () => {
     const { isValid, errorMessage } = validateInput(input, validationRules);
     
