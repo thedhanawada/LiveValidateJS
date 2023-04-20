@@ -1,0 +1,20 @@
+{
+  "name": "livevalidatejs",
+  "version": "1.1.0",
+  "description": "LiveValidateJS is a lightweight JavaScript library that provides real-time form validation and input checking for HTML forms. With LiveValidateJS, you can easily create custom validation rules for each input field and receive instant feedback on the input's validity as the user types",
+  "main": "livevalidate.js",
+  "files": ["livevalidate.js", "README.md", "LICENSE"],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Formu8JS/LiveValidateJS.git"
+  },
+  "author": "Nirmala Rao Dhanawada",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Formu8JS/LiveValidateJS/issues"
+  },
+  "homepage": "https://github.com/Formu8JS/LiveValidateJS#readme"
+}

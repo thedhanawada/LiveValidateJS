@@ -1,8 +1,8 @@
-## LiveValidateJS
+# LiveValidateJS
 
 LiveValidateJS is a lightweight JavaScript library that provides real-time form validation and input checking for HTML forms. With LiveValidateJS, you can create custom validation rules for each input field in your form and receive instant feedback on the input's validity as the user types. LiveValidateJS also supports server-side validation for added security and can help reduce form submission errors and increase user satisfaction.
 
-## Features
+# Features
 
 - Customizable validation rules for each input field
 - Real-time validation and input checking
@@ -10,24 +10,37 @@ LiveValidateJS is a lightweight JavaScript library that provides real-time form 
 - Server-side validation support
 - Lightweight and easy to use
 
-## Installation
-You can include the instantvalidate.js file in your HTML file using a script tag:
+# Installation
+You can use LiveValidateJS in your project by including the script file in your HTML code or by installing it via NPM.
+
+## Via CDN
+To include the latest version of LiveValidateJS from the CDN, add the following script tag to your HTML file:
 
 ```html
-<script src="path/to/livevalidate.js"></script>
-```
-
-## CDN
-
-You can also use LiveValidateJS via jsDelivr, a free, fast, and reliable open-source CDN. To include the library from jsDelivr, use the following URL:
-
-```HTML
 <script src="https://cdn.jsdelivr.net/gh/Formu8JS/LiveValidateJS@main/livevalidate.js"></script>
 ```
 
-By using jsDelivr, you can take advantage of their global network to improve the performance and reliability of your website. jsDelivr also supports HTTPS, which means you can securely deliver your content to users.
+This will make the LiveValidate object available in your global namespace, and you can use it to create new instances of the LiveValidate class and perform form validation.
 
-## Usage
+## Via NPM
+To install LiveValidateJS using NPM, open your terminal or command prompt and navigate to your project directory. Then, run the following command:
+
+```html
+npm install livevalidatejs
+```
+
+This will download and install the latest version of LiveValidateJS from the NPM registry, along with any dependencies that it requires.
+
+Once LiveValidateJS is installed, you can import it into your project using the following syntax:
+
+```javascript
+import LiveValidate from 'livevalidatejs';
+```
+
+For more information on how to use LiveValidateJS, including examples of how to create custom validation rules and receive real-time feedback on input validity, please refer to the documentation.
+
+
+# Usage
 To use LiveValidateJS, you need to add the livevalidate class to each input field you want to validate, and define the validation rules for each field using data attributes. Here's an example:
 
 ```html
@@ -55,7 +68,7 @@ livevalidate(form);
 
 This will add event listeners to the input fields to perform real-time validation and display error messages if the input is invalid. If the user tries to submit the form with invalid inputs, LiveValidateJS will prevent the form submission and display error messages for all invalid fields.
 
-## Validation Rules
+# Validation Rules
 
 LiveValidateJS supports a variety of validation rules, which can be defined using data attributes on the input fields. Here are the currently supported validation rules:
 
@@ -77,7 +90,7 @@ To define multiple validation rules for an input field, simply separate them wit
        data-validation-rules='{"required":true, "minLength":3, "maxLength":20}' />
 ```
 
-## Server-Side Validation
+# Server-Side Validation
 
 While LiveValidateJS provides real-time validation for form inputs, it's important to note that client-side validation should always be supplemented with server-side validation for security and reliability. LiveValidateJS makes it easy to integrate server-side validation into your form processing flow.
 
@@ -117,5 +130,5 @@ In this example, we're using the livevalidatejs package to perform server-side v
 
 When the form is submitted, the server-side validation route (/process-form) receives the form data in the request body. We pass the form data to the livevalidatejs.validate() function to perform the same validation rules that were defined on the client side. If the form data is valid, we process the form data and send a success response. If the form data is invalid, we send a 400 Bad Request response with the validation errors in the response body.
 
-## Contributing
+# Contributing
 If you find a bug or have a suggestion for improvement, feel free to open an issue or submit a pull request. Contributions are always welcome!
