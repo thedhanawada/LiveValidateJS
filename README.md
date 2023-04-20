@@ -1,16 +1,36 @@
-# LiveValidateJS
+# Live Validation Library
 
-LiveValidateJS is a lightweight JavaScript library that provides real-time form validation and input checking for HTML forms. With LiveValidateJS, you can create custom validation rules for each input field in your form and receive instant feedback on the input's validity as the user types. LiveValidateJS also supports server-side validation for added security and can help reduce form submission errors and increase user satisfaction.
+This live validation library helps you add real-time input validation to your forms with a simple and easy-to-use API. The library includes a set of common validation rules and allows you to create custom validation functions.
 
-# Features
+## Table of Contents
 
-- Customizable validation rules for each input field
-- Real-time validation and input checking
-- Automatic error message generation and display
-- Server-side validation support
-- Lightweight and easy to use
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+  - [addLiveValidation](#addlivevalidation)
+  - [addGroupValidation](#addgroupvalidation)
+  - [validateAsync](#validateasync)
+- [Example](#example)
+- [Customization](#customization)
+- [Contributing](#contributing)
 
-# Installation
+## Features
+
+- Real-time input validation
+- Built-in common validation rules:
+  - Required
+  - Min length
+  - Max length
+  - Pattern
+- Custom validation functions
+- Async validation support
+- Group validation
+- Debounce to optimize performance
+- Error message customization
+- Success messages
+
+## Installation
+
 You can use LiveValidateJS in your project by including the script file in your HTML code or by installing it via NPM.
 
 ## Via CDN
@@ -31,104 +51,155 @@ npm install livevalidatejs
 
 This will download and install the latest version of LiveValidateJS from the NPM registry, along with any dependencies that it requires.
 
+## Usage
+
+### Import the library
+
 Once LiveValidateJS is installed, you can import it into your project using the following syntax:
 
 ```javascript
 import LiveValidate from 'livevalidatejs';
 ```
 
-For more information on how to use LiveValidateJS, including examples of how to create custom validation rules and receive real-time feedback on input validity, please refer to the documentation.
+### addLiveValidation
 
+Call `addLiveValidation()` to apply validation rules to an input element. This function takes the following parameters:
 
-# Usage
-To use LiveValidateJS, you need to add the livevalidate class to each input field you want to validate, and define the validation rules for each field using data attributes. Here's an example:
+1. input: The input element to validate.
+2. validationRules: An array of validation rules.
+3. successMessage (optional): A message to display when the input is valid.
+4. showLiveFeedback (optional): Whether to show live feedback for validation.
 
-```html
-<form>
-  <label for="email">Email:</label>
-  <input type="email" id="email" name="email" class="livevalidate"
-         data-validation-rules='{"required":true, "email":true}'>
+### addGroupValidation
 
-  <label for="password">Password:</label>
-  <input type="password" id="password" name="password" class="livevalidate"
-         data-validation-rules='{"required":true, "minLength":8}'>
+Call `addGroupValidation()` to apply validation rules to a group of inputs. This function takes the following parameters:
 
+1. inputs: An array of input elements to validate.
+2. validationFunction: A custom validation function that returns a boolean. It should return true if the group of inputs is valid and false otherwise.
+3. errorMessage: The error message to display when the group is invalid.
+
+### validateAsync
+
+Call `validateAsync()` to perform asynchronous validation. This function takes the following parameters:
+
+1. input: The input element to validate.
+2. validationFunction: A custom validation function that receives the input value and a callback. The callback should be called with an error message when the input is invalid or with no arguments when the input is valid.
+
+## Example
+
+```
+<!-- HTML -->
+<form id="example-form">
+  <div class="input-wrapper">
+    <label for="name">Name:</label>
+    <input type="text" id="name" />
+  </div>
+  <div class="input-wrapper">
+    <label for="email">Email:</label>
+    <input type="email" id="email" />
+  </div>
+  <div class="input-wrapper">
+    <label for="password">Password:</label>
+    <input type="password" id="password" />
+  </div>
+  <div class="input-wrapper">
+    <label for="confirm-password">Confirm Password:</label>
+    <input type="password" id="confirm-password" />
+  </div>
   <button type="submit">Submit</button>
 </form>
+
+<!-- JavaScript -->
+<script>
+  const nameInput = document.getElementById('name');
+  const emailInput = document.getElementById('email');
+  const passwordInput = document.getElementById('password');
+  const confirmPasswordInput = document.getElementById('confirm-password');
+
+  // Add validation for name input
+  addLiveValidation(nameInput, [
+    { required: true, requiredMessage: 'Please enter your name' },
+  ]);
+
+  // Add validation for email input
+  addLiveValidation(emailInput, [
+    { required: true, requiredMessage: 'Please enter your email' },
+    { pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, patternMessage: 'Please enter a valid email' },
+  ]);
+
+  // Add validation for password input
+  addLiveValidation(passwordInput, [
+    { required: true, requiredMessage: 'Please enter a password' },
+    { minLength: 8, minLengthMessage: 'Password must be at least 8 characters long' },
+  ]);
+
+  // Add validation for confirm password input
+  addLiveValidation(confirmPasswordInput, [
+    { required: true, requiredMessage: 'Please confirm your password' },
+  ]);
+
+  // Add group validation for password and confirm password
+  addGroupValidation([passwordInput, confirmPasswordInput], (password, confirmPassword) => {
+    return password === confirmPassword;
+  }, 'Passwords do not match');
+</script>
 ```
+## Customization
 
-In this example, we have two input fields - an email field and a password field - that are both marked with the livevalidate class. We've also defined the validation rules for each field using data attributes (data-validation-rules). The email field is required and must be a valid email format, while the password field is also required and must be at least 8 characters long.
+You can easily customize the look and feel of the library by modifying the CSS styles of the elements it generates. The library adds various CSS classes to the error and success messages, which you can target in your CSS to apply your custom styles.
 
-To initialize LiveValidateJS, simply call the livevalidate() function on the form element:
+Below are the CSS classes used by the library and a brief explanation of their purpose:
 
-```javascript
-const form = document.querySelector('form');
-livevalidate(form);
+- error-message: This class is added to the container that holds individual error messages for each input field.
+- error-item: This class is added to each individual error message within the error container.
+- group-error-message: This class is added to the container that holds the group validation error message.
+- success-message: This class is added to the success message container that appears when the input passes validation.
+
+Here's an example of customizing the styles using CSS:
+
 ```
+/* Customize error message container */
+.error-message,
+.group-error-message {
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  border-radius: 4px;
+  color: #721c24;
+  font-size: 14px;
+  margin-top: 5px;
+  padding: 10px;
+}
 
-This will add event listeners to the input fields to perform real-time validation and display error messages if the input is invalid. If the user tries to submit the form with invalid inputs, LiveValidateJS will prevent the form submission and display error messages for all invalid fields.
+/* Customize individual error message items */
+.error-item {
+  margin-bottom: 5px;
+}
 
-# Validation Rules
+/* Remove margin from the last error message item */
+.error-item:last-child {
+  margin-bottom: 0;
+}
 
-LiveValidateJS supports a variety of validation rules, which can be defined using data attributes on the input fields. Here are the currently supported validation rules:
+/* Customize success message container */
+.success-message {
+  background-color: #d4edda;
+  border: 1px solid #c3e6cb;
+  border-radius: 4px;
+  color: #155724;
+  font-size: 14px;
+  margin-top: 5px;
+  padding: 10px;
+}
 
-- **required**: Requires the input field to have a non-empty value.
-- **requiredMessage**: The error message to display if the input field is required but empty.
-- **minLength**: Requires the input field to have a minimum length.
-- **minLengthMessage**: The error message to display if the input field is too short.
-- **maxLength**: Requires the input field to have a maximum length.
-- **maxLengthMessage**: The error message to display if the input field is too long.
-- **pattern**: Requires the input field to match a regular expression pattern.
-- **patternMessage**: The error message to display if the input field doesn't match the pattern.
-- **email**: Requires the input field to be a valid email format.
-- **emailMessage**: The error message to display if the input field is not a valid email format.
-
-To define multiple validation rules for an input field, simply separate them with commas:
-
-```html
-<input type="text" name="username" class="livevalidate"
-       data-validation-rules='{"required":true, "minLength":3, "maxLength":20}' />
+/* Customize the invalid input field */
+input.invalid {
+  border: 1px solid #dc3545;
+}
 ```
+## License
 
-# Server-Side Validation
+LiveValidateJS is released under the MIT license. This is a permissive open-source software license that allows for free use, modification, and distribution of the software without requiring payment or attribution.
 
-While LiveValidateJS provides real-time validation for form inputs, it's important to note that client-side validation should always be supplemented with server-side validation for security and reliability. LiveValidateJS makes it easy to integrate server-side validation into your form processing flow.
+Using an open-source license like the MIT license is important because it ensures that the software can be used and improved upon by as many people as possible. By releasing LiveValidateJS under the MIT license, we hope to encourage others to use and contribute to the project, and to promote the wider adoption of open-source software in general.
 
-When the form is submitted, LiveValidateJS prevents the default form submission behavior and sends an AJAX request to the server to validate the inputs. The server should return a JSON response indicating whether the inputs are valid or not. If the inputs are valid, the server can process the form data and send a success response. If the inputs are invalid, the server should send an error response containing the error messages to display to the user.
-
-Here's an example of server-side validation using Express.js and the livevalidatejs package:
-
-```javascript
-const express = require('express');
-const livevalidatejs = require('livevalidatejs');
-const bodyParser = require('body-parser');
-
-const app = express();
-
-// Parse form data
-app.use(bodyParser.urlencoded({ extended: false }));
-
-// Validate form inputs
-app.post('/process-form', (req, res) => {
-  const validationResult = livevalidatejs.validate(req.body);
-  
-  if (validationResult.isValid) {
-    // Form data is valid, process it and send a success response
-    res.send({ success: true });
-  } else {
-    // Form data is invalid, send an error response with the validation errors
-    res.status(400).send({ errors: validationResult.errors });
-  }
-});
-
-app.listen(3000, () => {
-  console.log('Server started on port 3000');
-});
-```
-
-In this example, we're using the livevalidatejs package to perform server-side validation of the form inputs. We're also using the body-parser package to parse the form data in the request body.
-
-When the form is submitted, the server-side validation route (/process-form) receives the form data in the request body. We pass the form data to the livevalidatejs.validate() function to perform the same validation rules that were defined on the client side. If the form data is valid, we process the form data and send a success response. If the form data is invalid, we send a 400 Bad Request response with the validation errors in the response body.
-
-# Contributing
-If you find a bug or have a suggestion for improvement, feel free to open an issue or submit a pull request. Contributions are always welcome!
+We take the licensing of LiveValidateJS seriously, and believe that it is a key part of the project's success. We encourage you to read the license in full before using or contributing to the project, and to abide by its terms in your use and distribution of the software.
