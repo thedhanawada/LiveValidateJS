@@ -87,7 +87,7 @@ Call `validateAsync()` to perform asynchronous validation. This function takes t
 
 ## Example
 
-```
+```html
 <!-- HTML -->
 <form id="example-form">
   <div class="input-wrapper">
@@ -157,7 +157,7 @@ Below are the CSS classes used by the library and a brief explanation of their p
 
 Here's an example of customizing the styles using CSS:
 
-```
+```html
 /* Customize error message container */
 .error-message,
 .group-error-message {
