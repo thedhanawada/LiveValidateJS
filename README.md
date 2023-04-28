@@ -1,5 +1,6 @@
 [![npm version](https://img.shields.io/npm/v/livevalidatejs)](https://img.shields.io/npm/v/livevalidatejs)
 [![npm](https://img.shields.io/npm/l/livevalidatejs?style=flat-square)](https://img.shields.io/npm/l/livevalidatejs?style=flat-square)
+[![npm-downloads](https://img.shields.io/npm/dw/livevalidatejs)](https://img.shields.io/npm/dw/livevalidatejs)
 
 # Live Validation Library
 
