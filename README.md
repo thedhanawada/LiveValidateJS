@@ -1,4 +1,5 @@
-https://img.shields.io/bundlephobia/minzip/livevalidatejs?style=flat-square
+[![npm version](https://img.shields.io/npm/v/livevalidatejs)](https://img.shields.io/npm/v/livevalidatejs)
+
 
 # Live Validation Library
 
