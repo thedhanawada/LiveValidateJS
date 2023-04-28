@@ -1,3 +1,5 @@
+https://img.shields.io/bundlephobia/minzip/livevalidatejs?style=flat-square
+
 # Live Validation Library
 
 This live validation library helps you add real-time input validation to your forms with a simple and easy-to-use API. The library includes a set of common validation rules and allows you to create custom validation functions.
