@@ -7,6 +7,35 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
+    <h2>About LivevalidateJS</h2>
+<p>LivevalidateJS is a JavaScript library that provides a simple way to validate user input in web forms. The library provides several validation rules that can be used to check for required fields, minimum and maximum length, pattern matching, and custom validation functions.</p>
+
+<h3>Add Live Validation with addLiveValidation</h3>
+<p>The `addLiveValidation` function is used to add live validation to an input field. This means that the user will see immediate feedback on their input as they type.</p>
+<p>The function takes four parameters:</p>
+<ul>
+  <li>`input` (required): The input element to validate.</li>
+  <li>`validationRules` (required): An array of validation rules to apply to the input field. Each rule is an object with one or more properties that define the validation criteria.</li>
+  <li>`successMessage` (optional): A message to display when the input is valid. If this parameter is not provided, no message will be displayed.</li>
+  <li>`showLiveFeedback` (optional, default: `true`): A boolean value that determines whether live feedback should be displayed to the user.</li>
+</ul>
+
+<h3>Validate a Group of Fields with addGroupValidation</h3>
+<p>The `addGroupValidation` function is used to validate a group of input fields together. This can be useful in cases where multiple fields are related to each other, such as in a registration form.</p>
+<p>The function takes three parameters:</p>
+<ul>
+  <li>`inputs` (required): An array of input elements to validate together.</li>
+  <li>`validationFunction` (required): A function that takes the values of the input fields as arguments and returns a boolean value indicating whether the inputs are valid or not.</li>
+  <li>`errorMessage` (required): A message to display when the inputs are invalid.</li>
+</ul>
+
+<h3>Validate Async Input with validateAsync</h3>
+<p>The `validateAsync` function is used to validate an input asynchronously. This can be useful when the validation requires an asynchronous operation, such as a server-side check.</p>
+<p>The function takes two parameters:</p>
+<ul>
+  <li>`input` (required): The input element to validate.</li>
+  <li>`validationFunction` (required): A function that takes the value of the input field and a callback function as arguments. The callback function should be called with an error message if the input is invalid, or with no arguments if the input is valid.</li>
+</ul>
     <div class="container">
       <h1>Validation Example</h1>
       <form>
