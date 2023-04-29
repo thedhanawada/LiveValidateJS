@@ -163,7 +163,7 @@ Below are the CSS classes used by the library and a brief explanation of their p
 
 Here's an example of customizing the styles using CSS:
 
-```html
+```javascript
 /* Customize error message container */
 .error-message,
 .group-error-message {
