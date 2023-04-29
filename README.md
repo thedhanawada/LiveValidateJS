@@ -122,29 +122,29 @@ Call `validateAsync()` to perform asynchronous validation. This function takes t
   const passwordInput = document.getElementById('password');
   const confirmPasswordInput = document.getElementById('confirm-password');
 
-  // Add validation for name input
+  // validation for name input
   addLiveValidation(nameInput, [
     { required: true, requiredMessage: 'Please enter your name' },
   ]);
 
-  // Add validation for email input
+  // validation for email input
   addLiveValidation(emailInput, [
     { required: true, requiredMessage: 'Please enter your email' },
     { pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, patternMessage: 'Please enter a valid email' },
   ]);
 
-  // Add validation for password input
+  // validation for password input
   addLiveValidation(passwordInput, [
     { required: true, requiredMessage: 'Please enter a password' },
     { minLength: 8, minLengthMessage: 'Password must be at least 8 characters long' },
   ]);
 
-  // Add validation for confirm password input
+  // validation for confirm password input
   addLiveValidation(confirmPasswordInput, [
     { required: true, requiredMessage: 'Please confirm your password' },
   ]);
 
-  // Add group validation for password and confirm password
+  // group validation for password and confirm password
   addGroupValidation([passwordInput, confirmPasswordInput], (password, confirmPassword) => {
     return password === confirmPassword;
   }, 'Passwords do not match');
