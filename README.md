@@ -202,28 +202,6 @@ input.invalid {
 }
 ```
 
-## Enhancements for LiveValidateJS
-
-Here are some suggestions to improve JavaScript validation library. PRs are welcome.
-
-1. Store `input.value.trim()` in a variable to avoid repetition. This makes the code cleaner and more efficient.
-2. **Unified Error Display**: Use your handleErrorMessage function in addGroupValidation and validateAsync for consistent error handling
-   ```javascript
-   if (!isValid) {
-  handleErrorMessage(groupErrorElement, errorMessage);
-}
-```
-3. **Async Validations**: Consider adapting your validateInput and addGroupValidation functions to handle asynchronous validation rules. This can make your library more flexible and able to handle a wider range of use cases.
-4. **Type Checking**: Add checks to ensure the inputs to your functions are of the expected type.
-   ```javascript
-if (!Array.isArray(inputs) || typeof validationFunction !== 'function') {
-  throw new Error('Invalid arguments');
-}
-```
-5. **Encapsulation**: Group related functions into a class or module to prevent global scope pollution.
-6. **Custom Styles**: Allow users to define their own error class.
-
-
 ## License
 
 LiveValidateJS is released under the [MIT license](https://github.com/thedhanawada/LiveValidateJS/blob/main/LICENSE). This is a permissive open-source software license that allows for free use, modification, and distribution of the software without requiring payment or attribution.
